@@ -1,13 +1,15 @@
 import * as vscode from "vscode";
+import RapMenuItem from './views/rapMenu/RapTreeItem';
+import RapTreeDataProvider from './views/rapMenu/RAPTreeDataProvider';
+
 
 export function activate(context: vscode.ExtensionContext) {
-  console.log('Congratulations, your extension "rest-api-testing" is now active!');
-  let disposable = vscode.commands.registerCommand("extension.helloWorld",() => {
-      vscode.window.showInformationMessage("Hello World!");
-    }
-  );
+  const rapTreeDataProvider = new RapTreeDataProvider();
+  context.subscriptions.push(vscode.window.registerTreeDataProvider("RAPMenu", rapTreeDataProvider));
 
-  context.subscriptions.push(disposable);
+  context.subscriptions.push(vscode.commands.registerCommand("RAP.newRequest", (node: RapMenuItem) => {
+    
+  }));
 }
 
 export function deactivate() {}
