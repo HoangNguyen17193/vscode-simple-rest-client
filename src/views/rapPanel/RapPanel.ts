@@ -82,8 +82,7 @@ export default class RapPanel {
                   </textarea
                 </div>
                 <div class="footer">
-                  <button class="btn btn-signin" id="btn-signin" onclick="send()">Sign in</button>
-                  <button class="btn btn-signin" id="btn-reload" onclick="reload()">reload</button>
+                  <button class="btn btn-request" onclick="send()">Send</button>
                 </div>
                 <pre>
                   <code id="result">${result}</code>
@@ -147,26 +146,14 @@ export default class RapPanel {
               .footer {
                 margin-top: 20px;
               }
-              .btn-signin {
+              .btn-request {
                 background-color: #00A9FF;
                 color: #FFFFFF;
               }
-              .btn-signup {
-                background-color: #E6E6E6;
-                color: #98A5B3;
-                margin-left: 15px;
-              }
-              .signup-link {
-                color: #00A9FF;
-                font-size: 14px;
-                font-weight: 500;
-                margin-left: 15px;
-                text-decoration: none;
-              }
-              body.vscode-light .username, body.vscode-light .password {
+              body.vscode-light .username, body.vscode-light .input {
                 color: #616466;
               }
-              body.vscode-dark .username, body.vscode-dark .password {
+              body.vscode-dark .username, body.vscode-dark .input {
                 color: #C2C7CC;
               }
             </style>
