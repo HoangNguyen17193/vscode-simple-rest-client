@@ -13,7 +13,10 @@
     "test",
     "api",
     "testing",
-    "http"
+    "http",
+    "http client",
+    "api testing",
+    "api client"
   ],
   "repository": {
     "url": "https://github.com/HoangNguyen17193/rest-api-testing"
