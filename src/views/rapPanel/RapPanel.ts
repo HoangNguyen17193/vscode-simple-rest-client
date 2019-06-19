@@ -100,8 +100,7 @@ export default class RapPanel {
             </body>
             <style>
               .container {
-                padding-left: 20px;
-                padding-top: 20px;
+                padding: 20px;
               }
               .row {
                 display: flex;
