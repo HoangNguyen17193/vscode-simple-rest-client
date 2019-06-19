@@ -1,6 +1,6 @@
 {
-  "name": "rest-api-testing",
-  "displayName": "REST API testing",
+  "name": "vscode-rest-client",
+  "displayName": "REST Client",
   "description": "Easy to test API on Vscode. Examine your API’s responses directly within Visual Studio Code. Send requests to verify your API.",
   "version": "0.0.1",
   "engines": {
@@ -16,12 +16,14 @@
     "http",
     "http client",
     "api testing",
-    "api client"
+    "api client",
+    "request",
+    "request-client"
   ],
   "repository": {
-    "url": "https://github.com/HoangNguyen17193/rest-api-testing"
+    "url": "https://github.com/HoangNguyen17193/vscode-rest-client"
   },
-  "homepage": "https://github.com/HoangNguyen17193/rest-api-testing/blob/master/README.md",
+  "homepage": "https://github.com/HoangNguyen17193/vscode-rest-client/blob/master/README.md",
   "preview": true,
   "icon": "resources/logo.png",
   "activationEvents": [
@@ -34,7 +36,7 @@
         {
           "id": "RAP-explorer",
           "title": "Rest API Testing",
-          "icon": "resources/logo.png"
+          "icon": "resources/rap-icon.png"
         }
       ]
     },
