@@ -3,18 +3,6 @@ import Request from '../../models/request';
 import RequestService from '../../services/request';
 
 export default class RapPanel {
-  result = JSON.stringify({
-      id: 8652,
-      status: 1,
-      expiration_date: "May 8th 2019, 7:43 am",
-      created_at: "2019-05-27T09:00:45.890Z",
-      updated_at: "2019-05-27T14:00:06.733Z",
-      active: true,
-      send_expiration_mail: true,
-      send_expiration_reminder_mail: true,
-      user_id: 1
-  }, null, 4).trim();
-
   private _request: Request;
   private panel: vscode.WebviewPanel;
 
@@ -63,30 +51,32 @@ export default class RapPanel {
             </head>
             <body>
               <div class="container">
-                <div class="block">
-                  <label class="input-label">Method</label> <br/><br/>
-                  <input class="input request-method" id="request-method" type="text" width="200px"/> 
+                <div class="row">
+                  <div class="col">
+                    <div class="input-label">URL*</div>
+                    <input class="input request-url" id="request-url" type="text"/>
+                  </div>
+                  <div class="col">
+                    <div class="input-label">Method*</div>
+                    <input class="input request-method" id="request-method" type="text" /> 
+                  </div>
                 </div>
-                <div class="block">
-                  <label class="input-label">URL</label> <br/><br/>
-                  <input class="input request-url" id="request-url" type="text" width="500px"/>
-                </div>
-                <div class="block">
-                  <label class="input-label">Headers</label> <br/><br/>
-                  <textarea class="input request-headers" id="request-headers" type="text" col=3>
-                  </textarea
-                </div>
-                <div class="block">
-                  <label class="input-label">Body</label> <br/><br/>
-                  <textarea class="input request-body" id="request-body" type="text" col=3>
-                  </textarea
+                <div class="row">
+                  <div class="col">
+                    <div class="input-label">Headers</div>
+                    <textarea class="input-area request-headers" id="request-headers" type="text" rows="5"></textarea>
+                  </div>
+                  <div class="col">
+                    <div class="input-label">Body</div>
+                    <textarea class="input-area request-body" id="request-body" type="text" rows="5"></textarea>
+                  </div>
                 </div>
                 <div class="footer">
                   <button class="btn btn-request" onclick="send()">Send</button>
                 </div>
-                <pre>
-                  <code id="result">${result}</code>
-                </pre>
+                <div class="row">
+                  <pre><code id="result">${result}</code></pre>
+                </div>
               </div>
                 <script>
                   const vscode = acquireVsCodeApi();
@@ -111,27 +101,55 @@ export default class RapPanel {
             <style>
               .container {
                 padding-left: 20px;
+                padding-top: 20px;
               }
-              .block {
+              .row {
+                display: flex;
+                flex-wrap: wrap;
+              }
+              .col {
                 margin-bottom: 20px;
+                float: left;
+              }
+              .col {
+                flex-basis: 0;
+                -ms-flex-positive: 1;
+                flex-grow: 1;
+                max-width: 100%;
               }
               .input {
                 background-color: rgba(194,199,203,0.2); 
                 border-radius: 24px; 
                 height: 38px; 
-                width: 500px; 
                 border:none; 
                 font-size: 16px;
                 padding-left: 20px
               }
-              input:focus
+              .request-method {
+                width: 200px; 
+              }
+              .request-url {
+                width: 400px;
+              }
+              .input:focus {
                 border:none;
+              }
+              .input-area {
+                background-color: rgba(194,199,203,0.2);
+                border-radius: 24px;
+                border:none; 
+                font-size: 16px;
+                padding-left: 20px;
+                width: 400px;
+                margin-top: 10x;
               }
               .input-label {
                 font-size: 14px;
-                display: inline;
-                margin-bottom 10px;
                 color: #98A5B3;
+                display: inline-block;
+                margin-bottom: .5rem;
+                width: 100%;
+                font-weight: 500;
               }
               .btn {
                 box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
@@ -147,14 +165,27 @@ export default class RapPanel {
                 margin-top: 20px;
               }
               .btn-request {
-                background-color: #00A9FF;
+                background: linear-gradient(45deg, #3949ab, #4fc3f7);
                 color: #FFFFFF;
+                box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
+                width: 150px;
               }
-              body.vscode-light .username, body.vscode-light .input {
+              pre {
+                background-color: #3F4041; 
+                font-size: 14px;
+              }
+             
+              body.vscode-light .input, body.vscode-light .input-area  {
                 color: #616466;
               }
-              body.vscode-dark .username, body.vscode-dark .input {
+               body.vscode-light pre>code {
+                color: #616466;
+              }
+              body.vscode-dark .input, body.vscode-dark .input-area {
                 color: #C2C7CC;
+              }
+              body.vscode-dark pre>code {
+                color: #ffffff;
               }
             </style>
           </html>`;
