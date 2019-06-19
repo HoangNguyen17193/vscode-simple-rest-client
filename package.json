@@ -1,6 +1,7 @@
 {
   "name": "vscode-rest-client",
   "displayName": "REST Client",
+  "publisher": "Tino",
   "description": "Easy to test API on Vscode. Examine your API’s responses directly within Visual Studio Code. Send requests to verify your API.",
   "version": "0.0.1",
   "engines": {
@@ -25,7 +26,7 @@
   },
   "homepage": "https://github.com/HoangNguyen17193/vscode-rest-client/blob/master/README.md",
   "preview": true,
-  "icon": "resources/logo.png",
+  "icon": "resources/rap-logo.png",
   "activationEvents": [
     "onView:RAPMenu"
   ],
@@ -63,11 +64,13 @@
     "postinstall": "node ./node_modules/vscode/bin/install"
   },
   "devDependencies": {
+    "@types/mocha": "^2.2.42",
+    "@types/node": "^10.12.21",
+    "tslint": "^5.12.1",
     "typescript": "^3.3.1",
     "vscode": "^1.1.28",
-    "tslint": "^5.12.1",
-    "@types/node": "^10.12.21",
-    "@types/mocha": "^2.2.42"
+    "webpack": "^4.34.0",
+    "webpack-cli": "^3.3.4"
   },
   "dependencies": {
     "request": "^2.88.0",
