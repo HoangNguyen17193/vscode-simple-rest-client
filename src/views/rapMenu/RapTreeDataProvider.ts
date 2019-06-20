@@ -15,11 +15,11 @@ export default class RapTreeDataProvider implements vscode.TreeDataProvider<RapT
       new RapTreeItem("New Request", vscode.TreeItemCollapsibleState.None, {
         command: "RAP.newRequest",
         title: "New Request"
-      }, "create-project.png"),
+      }, "new-request.png"),
       new RapTreeItem("History", vscode.TreeItemCollapsibleState.None, {
         command: '',
         title: "History"
-      }, "start-server.png")
+      }, "history.png")
     ];
   }
 
