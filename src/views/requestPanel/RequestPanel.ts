@@ -1,5 +1,6 @@
 import * as vscode from 'vscode';
 import Request from '../../models/request';
+import { isBlank } from '../../utils';
 
 export default class RapPanel {
   private _request: Request;
@@ -40,7 +41,7 @@ export default class RapPanel {
   }
 
   private getWebviewContent() {
-    const result = this._request.result ? JSON.stringify(JSON.parse(this._request.result.toString()), null, 4): '';
+    const result = this.beautifyResult(this._request.result);
     const error = this._request.error ? JSON.stringify(this._request.error, null, 4): '';
     return `<!DOCTYPE html>
           <html lang="en">
@@ -188,5 +189,15 @@ export default class RapPanel {
               }
             </style>
           </html>`;
+  }
+
+  private beautifyResult(result) {
+    if(isBlank(result)) {
+      return '';
+    }
+    if (typeof result === "string" || result instanceof String) {
+      return result;
+    }
+    return  JSON.stringify(JSON.parse(result.toString()), null, 4);
   }
 }

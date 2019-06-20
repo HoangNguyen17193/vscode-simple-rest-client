@@ -6,17 +6,17 @@ export default class Request {
   static request(requestModel:RequestModel) {
     try {
 
-     const options = {
+     const options: any = {
        method: requestModel.type,
        uri: requestModel.url
      };
     // TODO: handle headers, body
-    //  if (isBlank(requestModel.body)) {
-    //    options.body = JSON.parse(requestModel.body);
-    //  }
-    //  if (isBlank(requestModel.headers)) {
-    //    options.headers = JSON.parse(requestModel.headers);
-    //  }
+     if (!isBlank(requestModel.body)) {
+       options.body = JSON.stringify(JSON.parse(requestModel.body));
+     }
+     if (!isBlank(requestModel.headers)) {
+       options.headers = JSON.parse(requestModel.headers);
+     }
      return request(options);
     }catch(error) {
       console.log(error);
