@@ -28,23 +28,23 @@
   "preview": true,
   "icon": "resources/rap-logo.png",
   "activationEvents": [
-    "onView:RAPMenu"
+    "onView:Menu"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "viewsContainers": {
       "activitybar": [
         {
-          "id": "RAP-explorer",
-          "title": "Rest API Testing",
+          "id": "RC-explorer",
+          "title": "REST Client",
           "icon": "resources/rap-icon.png"
         }
       ]
     },
     "views": {
-      "RAP-explorer": [
+      "RC-explorer": [
         {
-          "id": "RAPMenu",
+          "id": "Menu",
           "name": ""
         }
       ]
