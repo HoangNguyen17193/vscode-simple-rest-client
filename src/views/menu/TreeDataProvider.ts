@@ -1,5 +1,6 @@
 import * as vscode from 'vscode';
 import TreeItem from './TreeItem';
+import HistoryTreeItem from './HistoryTreeItem';
 
 export default class RapTreeDataProvider implements vscode.TreeDataProvider<TreeItem>{
 
@@ -7,7 +8,10 @@ export default class RapTreeDataProvider implements vscode.TreeDataProvider<Tree
   readonly onDidChangeTreeData: vscode.Event<TreeItem | undefined> = this._onDidChangeTreeData.event;
 
   getChildren(element?: TreeItem): Thenable<TreeItem[]> {
-    return Promise.resolve(this.getMenuItems());
+    if(!element){
+      return Promise.resolve(this.getMenuItems());
+    }
+    return Promise.resolve(element.getChildren());
   }
 
   private getMenuItems() {
@@ -16,7 +20,7 @@ export default class RapTreeDataProvider implements vscode.TreeDataProvider<Tree
         command: "RestClient.newRequest",
         title: "New Request"
       }, "new-request.png"),
-      new TreeItem("History", vscode.TreeItemCollapsibleState.None, {
+      new HistoryTreeItem("History", vscode.TreeItemCollapsibleState.Collapsed, {
         command: '',
         title: "History"
       }, "history.png")

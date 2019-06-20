@@ -19,7 +19,8 @@ export default class RapTreeItem extends vscode.TreeItem {
     return '';
   }
 
-  getChildrent() {
+  
+  getChildren() {
     return [];
   }
 
