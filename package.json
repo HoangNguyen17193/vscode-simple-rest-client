@@ -24,9 +24,9 @@
     "rest client"
   ],
   "repository": {
-    "url": "https://github.com/HoangNguyen17193/vscode-rest-client"
+    "url": "https://github.com/HoangNguyen17193/vscode-simple-rest-client"
   },
-  "homepage": "https://github.com/HoangNguyen17193/vscode-rest-client/blob/master/README.md",
+  "homepage": "https://github.com/HoangNguyen17193/vscode-simple-rest-client/blob/master/README.md",
   "preview": true,
   "icon": "resources/rap-logo.png",
   "activationEvents": [

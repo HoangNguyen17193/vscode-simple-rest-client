@@ -1,9 +1,2 @@
-# Change Log
-
-All notable changes to the "rest-api-testing" extension will be documented in this file.
-
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
-
-## [Unreleased]
-
-- Initial release
+## 0.0.2 (2019/06/24)
+* Initial release!
