@@ -1,6 +1,8 @@
-const request = require('request-promise');
+import * as vscode from "vscode";
 import RequestModel from '../models/request';
 import { isBlank } from '../utils/index';
+
+const request = require("request-promise");
 
 export default class Request {
   static request(requestModel:RequestModel) {
@@ -10,7 +12,6 @@ export default class Request {
        method: requestModel.type,
        uri: requestModel.url
      };
-    // TODO: handle headers, body
      if (!isBlank(requestModel.body)) {
        options.body = JSON.stringify(JSON.parse(requestModel.body));
      }
@@ -20,6 +21,7 @@ export default class Request {
      return request(options);
     }catch(error) {
       console.log(error);
+      return Promise.reject("Invalid JSON format");
     }
   }
 }

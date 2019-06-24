@@ -42,7 +42,7 @@ export default class RapPanel {
 
   private getWebviewContent() {
     const result = this.beautifyResult(this._request.result);
-    const error = this._request.error ? JSON.stringify(this._request.error, null, 4): '';
+    const error = this.beautifyError(this._request.error);
     return `<!DOCTYPE html>
           <html lang="en">
             <head>
@@ -195,9 +195,23 @@ export default class RapPanel {
     if(isBlank(result)) {
       return '';
     }
-    if (typeof result === "string" || result instanceof String) {
+    try {
+      const jsonResult = JSON.parse(result.toString());
+      return JSON.stringify(jsonResult, null, 4);
+    } catch(error) {
       return result;
     }
-    return  JSON.stringify(JSON.parse(result.toString()), null, 4);
+  }
+
+  private beautifyError(error) {
+    if (isBlank(error)) {
+      return "";
+    }
+    try {
+      const jsonError = JSON.parse(JSON.stringify(error));
+      return JSON.stringify(jsonError, null, 4);
+    } catch(error) {
+      return error;
+    }
   }
 }
