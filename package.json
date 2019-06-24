@@ -38,7 +38,7 @@
       "activitybar": [
         {
           "id": "RC-explorer",
-          "title": "REST Client",
+          "title": "Simple REST Client",
           "icon": "resources/rap-icon.png"
         }
       ]
