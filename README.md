@@ -8,3 +8,7 @@ Easy to examine your API’s responses directly within Visual Studio Code. Send 
 
 
 ## Usage
+[](https://raw.githubusercontent.com/HoangNguyen17193/vscode-simple-rest-client/master/design/screen-shots/get.gif)
+
+### Post Request:
+[](https://raw.githubusercontent.com/HoangNguyen17193/vscode-simple-rest-client/master/design/screen-shots/post.png)
