@@ -52,10 +52,6 @@
       ]
     },
     "commands": [
-      {
-        "command": "extension.helloWorld",
-        "title": "Hello World"
-      }
     ]
   },
   "scripts": {
