@@ -29,7 +29,7 @@
     "url": "https://github.com/HoangNguyen17193/vscode-simple-rest-client"
   },
   "homepage": "https://github.com/HoangNguyen17193/vscode-simple-rest-client/blob/master/README.md",
-  "preview": true,
+  "preview": false,
   "icon": "resources/rap-logo.png",
   "activationEvents": [
     "onView:Menu"
