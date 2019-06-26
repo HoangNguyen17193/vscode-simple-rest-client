@@ -31,6 +31,7 @@
   "homepage": "https://github.com/HoangNguyen17193/vscode-simple-rest-client/blob/master/README.md",
   "preview": false,
   "icon": "resources/rap-logo.png",
+  "license": "MIT",
   "activationEvents": [
     "onView:Menu"
   ],

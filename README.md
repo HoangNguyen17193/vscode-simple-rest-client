@@ -12,3 +12,6 @@ Easy to examine your API’s responses directly within Visual Studio Code. Send 
 
 ### Post Request:
 ![](https://raw.githubusercontent.com/HoangNguyen17193/vscode-simple-rest-client/master/design/screen-shots/new-post.png)
+
+## License
+[MIT License](LICENSE)
