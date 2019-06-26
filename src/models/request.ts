@@ -51,4 +51,13 @@ export default class Request {
     this._error = error;
   }
   
+  public serialize() {
+    return {
+      url: this._url,
+      type: this._type,
+      headers: this._headers,
+      body: this._body,
+      form: this._form
+    };
+  }
 } 
