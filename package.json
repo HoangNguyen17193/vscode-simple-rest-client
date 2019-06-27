@@ -57,7 +57,7 @@
     "commands": [
       {
         "command": "RestClient.newRequest",
-        "title": "SRC: New Request"
+        "title": "Simple Rest Client: New Request"
       }
     ]
   },
