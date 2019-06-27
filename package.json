@@ -55,6 +55,10 @@
       ]
     },
     "commands": [
+      {
+        "command": "RestClient.newRequest",
+        "title": "SRC: New Request"
+      }
     ]
   },
   "scripts": {
