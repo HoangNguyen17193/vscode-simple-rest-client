@@ -10,3 +10,5 @@
 * Add new request command
 * Add License
 * Update description
+## 0.0.1 (2019/06/27)
+* Fix minor issues
