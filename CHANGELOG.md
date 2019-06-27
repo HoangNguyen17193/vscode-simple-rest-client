@@ -6,3 +6,7 @@
 * Update screen shots
 ## 0.0.5 (2019/06/25)
 * Fix minor issues
+## 0.1.0 (2019/06/27)
+* Add new request command
+* Add License
+* Update description
