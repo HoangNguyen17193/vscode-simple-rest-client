@@ -1,6 +1,7 @@
 import { throws } from "assert";
 
 export default class Request {
+  private _name: string;
   private _url: string;
   private _type: string;
   private _headers: string;
@@ -8,13 +9,19 @@ export default class Request {
   private _form: string;
   private _result: any;
   private _error: any;
-  constructor(url: string, type: string, headers: string, body: string, form: string) {
+  constructor(name:string, url: string, type: string, headers: string, body: string, form: string) {
+    this._name = name;
     this._url = url;
     this._type = type || 'GET';
     this._headers = headers;
     this._body = body;
     this._form = form;
   }
+
+  get name() {
+    return this._name;
+  }
+
   get url() {
     return this._url;
   }
@@ -53,6 +60,7 @@ export default class Request {
   
   public serialize() {
     return {
+      name: this._name,
       url: this._url,
       type: this._type,
       headers: this._headers,
