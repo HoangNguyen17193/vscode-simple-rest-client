@@ -8,8 +8,8 @@ export default class HistoryTreeItem extends TreeItem {
   getChildren() {
     const history = HistoryService.getAll() || [];
     return history.map((requestData: any) => {
-      const request = new Request(requestData.url, requestData.type, requestData.headers, requestData.body, requestData.form);
-      return new RequestTreeItem(request.url, request);
+      const request = new Request(requestData.name, requestData.url, requestData.type, requestData.headers, requestData.body, requestData.form);
+      return new RequestTreeItem(request.name || request.url, request);
     });
   }
 }
