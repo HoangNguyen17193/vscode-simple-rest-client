@@ -9,7 +9,7 @@ export default class extends TreeItem {
       command: "RestClient.historyRequest",
       title: "History Request",
       arguments: [request] 
-    }, "new-request.png");
+    }, "history-request.png");
     this.request = request;
   }
 
