@@ -1,4 +1,6 @@
 # Simple REST Client
+[![Marketplace Version](https://vsmarketplacebadge.apphb.com/version-short/Tino.simple-rest-client.svg)](https://marketplace.visualstudio.com/items?itemName=Tino.simple-rest-client) [![Installs](https://vsmarketplacebadge.apphb.com/installs-short/Tino.simple-rest-client.svg)](https://marketplace.visualstudio.com/items?itemName=Tino.simple-rest-client) [![Download](https://vsmarketplacebadge.apphb.com/downloads-short/Tino.simple-rest-client.svg)](https://marketplace.visualstudio.com/items?itemName=Tino.simple-rest-client) [![Rating](https://vsmarketplacebadge.apphb.com/rating-short/Tino.simple-rest-client.svg)](https://marketplace.visualstudio.com/items?itemName=Tino.simple-rest-client) ![Trending](https://vsmarketplacebadge.apphb.com/trending-weekly/Tino.simple-rest-client.svg)
+
 Easy to examine your API’s responses directly within Visual Studio Code. Send requests to verify your API.
 
 ## Main Features
