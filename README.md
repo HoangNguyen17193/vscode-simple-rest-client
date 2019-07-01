@@ -6,7 +6,7 @@ Easy to examine your API’s responses directly within Visual Studio Code. Send 
 ## Main Features
 - Send HTTP request (based on [request.js](https://github.com/request/request)) and view response in a request panel with friendly UI
 - Support multiple request panels
-- History (comming soon)
+- History
 
 ## Useful commands
 Open the Command Palette (Command+Shift+P on macOS and Ctrl+Shift+P on Windows/Linux) and type in one of the following commands:
@@ -16,7 +16,7 @@ Command | Description
 ```Simple Rest Client: New Request``` | Create new request panel.
 
 ## Usage
-![](https://raw.githubusercontent.com/HoangNguyen17193/vscode-simple-rest-client/master/design/screen-shots/new-get.gif)
+![](https://raw.githubusercontent.com/HoangNguyen17193/vscode-simple-rest-client/master/design/screen-shots/v1/screen-shots.gif)
 
 ### Post Request:
 ![](https://raw.githubusercontent.com/HoangNguyen17193/vscode-simple-rest-client/master/design/screen-shots/new-post.png)
