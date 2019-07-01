@@ -33,7 +33,7 @@
   "icon": "resources/rap-logo.png",
   "license": "MIT",
   "activationEvents": [
-    "onView:Menu"
+    "*"
   ],
   "main": "./out/extension.js",
   "contributes": {

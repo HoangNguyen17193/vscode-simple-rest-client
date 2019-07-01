@@ -54,6 +54,12 @@ export default class RapPanel {
               <form class="container" onsubmit="send()">
                 <div class="row">
                   <div class="col">
+                    <div class="input-label">Name</div>
+                    <input value="${this._request.name}" class="input request-name" id="request-name" type="text"/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
                     <div class="input-label">URL*</div>
                     <input required value="${this._request.url}" class="input request-url" id="request-url" type="text"/>
                   </div>
@@ -87,12 +93,13 @@ export default class RapPanel {
                 </script>
                 <script>
                   function send() {
+                    const name = document.getElementById('request-name').value;
                     const method = document.getElementById('request-method').value;
                     const url = document.getElementById('request-url').value;
                     const body = document.getElementById('request-body').value;
                     const headers = document.getElementById('request-headers').value;
                     //document.getElementById('result').innerHTML = url;
-                    document.vscode.postMessage({command: 'request',url: url, type: method, headers: headers, body: body});
+                    document.vscode.postMessage({command: 'request', name, url, type: method, headers, body});
                   }
                   function reload() {
                      document.vscode.postMessage({command: 'reload'});
@@ -129,6 +136,9 @@ export default class RapPanel {
                 width: 200px; 
               }
               .request-url {
+                width: 400px;
+              }
+              .request-name {
                 width: 400px;
               }
               .input:focus {

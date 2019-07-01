@@ -1,40 +1,24 @@
 import * as vscode from "vscode";
-import TreeItem from './views/Menu/TreeItem';
-import TreeDataProvider from "./views/Menu/TreeDataProvider";
-import RequestPanel from "./views/requestPanel/RequestPanel";
+import TreeItem from './views/menu/TreeItem';
+import RequestTreeItem from './views/menu/RequestTreeItem';
+import TreeDataProvider from "./views/menu/TreeDataProvider";
 import Request from './models/request';
-import Runner from './runners/baseRunner';
+import Controller from './controllers/mainController';
 
 export function activate(context: vscode.ExtensionContext) {
-  const runner = new Runner();
   const treeDataProvider = new TreeDataProvider();
+  const controller = new Controller(treeDataProvider);
   context.subscriptions.push(vscode.window.registerTreeDataProvider("Menu", treeDataProvider));
 
-  context.subscriptions.push(vscode.commands.registerCommand("RestClient.newRequest", (node: TreeItem) => {
-    const request = new Request('', '', '', '', '');
-    const rapPanel = new RequestPanel(request);
-    const panel = rapPanel.create();
-    panel.webview.onDidReceiveMessage(async (message) => {
-      switch (message.command) {
-        case "request": {
-          const { url, type, headers, body, form } = message;
-          try {
-            const result = await runner.makeRequest(url, type, headers, body, form);
-            const newRequest = new Request(url, type, headers, body, form);
-            newRequest.result = result || 'No Content';
-            rapPanel.reload(newRequest);
-          } catch(error) {
-            const newRequest = new Request(url, type, headers, body, form);
-            newRequest.error = error.response ? error.response: error;
-            rapPanel.reload(newRequest);
-          }
-        }
-      }
-    });
+  context.subscriptions.push(vscode.commands.registerCommand("RestClient.newRequest", () => {
+    const request = new Request('', '', '', '', '', '');
+    controller.createRequestPanel(request);
   }));
-  context.subscriptions.push(vscode.commands.registerCommand("RestClient.makeRequest", 
-  (url: string, type: string, headers:string, body:string, form:string) => {
-    return runner.makeRequest(url, type, headers, body, form);
+  context.subscriptions.push(vscode.commands.registerCommand("RestClient.historyRequest", (request: Request) => {
+    controller.createRequestPanel(request);
+  }));
+  context.subscriptions.push(vscode.commands.registerCommand("RestClient.makeRequest", (name:string, url: string, type: string, headers:string, body:string, form:string) => {
+    return controller.makeRequest(name, url, type, headers, body, form);
   }));
 }
 
