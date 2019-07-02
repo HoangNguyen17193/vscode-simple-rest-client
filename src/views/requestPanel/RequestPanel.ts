@@ -48,7 +48,7 @@ export default class RapPanel {
             <head>
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>Signin</title>
+                <title>Request Panel</title>
             </head>
             <body>
               <form class="container" onsubmit="send()">
@@ -81,8 +81,8 @@ export default class RapPanel {
                 <div class="footer">
                   <button type="submit" class="btn btn-request">Send</button>
                 </div>
+                <button onclick="copyResult()" class="btn btn-copy ${this.isHideCopyButton() ? 'hide' : ''}">Copy</button>
                 <div class="row">
-                  <button onclick="copyResult()" class="btn btn-copy ${this.isHideCopyButton() ? 'hide' : ''}">Send</button>
                   <pre><code id="result" class="${result ? 'result' : 'error'}">${result ? result : error}</code></pre>
                 </div>
               </div>
@@ -187,10 +187,14 @@ export default class RapPanel {
                 position: relative;
               }
               .btn-copy {
-
+                margin-top:20px;
+                margin-left: 20px;
+                width: 70px;
+                height: 30px;
+                font-size: 12px;
               }
               .hide {
-                display: none;
+               display: none;
               }
              
               body.vscode-light .input, body.vscode-light .input-area  {
