@@ -78,6 +78,7 @@
     "webpack-cli": "^3.3.4"
   },
   "dependencies": {
+    "clipboardy": "^2.1.0",
     "request": "^2.88.0",
     "request-promise": "^4.2.4"
   }
