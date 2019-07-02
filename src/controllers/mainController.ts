@@ -1,6 +1,7 @@
 import Request from '../models/request';
 import RequestService from '../services/request';
 import HistoryService from '../services/history';
+import ClipboardService from "../services/clipboard";
 import RequestPanel from '../views/requestPanel/RequestPanel';
 import TreeDataProvider from '../views/menu/TreeDataProvider';
 
@@ -34,6 +35,10 @@ export default class BaseRunner {
             rapPanel.reload(newRequest);
             this._menu.refresh();
           }
+          break;
+        }
+        case "copy": {
+          ClipboardService.copy(message.text);
         }
       }
     });
