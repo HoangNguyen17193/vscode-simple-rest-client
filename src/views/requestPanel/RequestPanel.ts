@@ -48,7 +48,11 @@ export default class RapPanel {
             <head>
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
                 <title>Request Panel</title>
+=======
+                <title>New Request</title>
+>>>>>>> cb81eaf6f0a57080624396e1a923deb7663f807e
             </head>
             <body>
               <form class="container" onsubmit="send()">
@@ -182,7 +186,7 @@ export default class RapPanel {
                 width: 150px;
               }
               pre {
-                background-color: #3F4041; 
+                background-color: rgba(194,199,203,0.2);
                 font-size: 14px;
                 position: relative;
               }
