@@ -48,7 +48,7 @@ export default class RapPanel {
             <head>
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>New Request</title>
+                <title>Request Panel</title>
             </head>
             <body>
               <form class="container" onsubmit="send()">
@@ -81,6 +81,7 @@ export default class RapPanel {
                 <div class="footer">
                   <button type="submit" class="btn btn-request">Send</button>
                 </div>
+                <button onclick="copyResult()" class="btn btn-copy ${this.isHideCopyButton() ? 'hide' : ''}">Copy</button>
                 <div class="row">
                   <pre><code id="result" class="${result ? 'result' : 'error'}">${result ? result : error}</code></pre>
                 </div>
@@ -98,11 +99,11 @@ export default class RapPanel {
                     const url = document.getElementById('request-url').value;
                     const body = document.getElementById('request-body').value;
                     const headers = document.getElementById('request-headers').value;
-                    //document.getElementById('result').innerHTML = url;
                     document.vscode.postMessage({command: 'request', name, url, type: method, headers, body});
                   }
-                  function reload() {
-                     document.vscode.postMessage({command: 'reload'});
+                  function copyResult() {
+                     const result = document.getElementById('result').innerText;
+                     document.vscode.postMessage({command: 'copy', text: result});
                   }
                 </script>
             </body>
@@ -183,6 +184,17 @@ export default class RapPanel {
               pre {
                 background-color: rgba(194,199,203,0.2);
                 font-size: 14px;
+                position: relative;
+              }
+              .btn-copy {
+                margin-top:20px;
+                margin-left: 20px;
+                width: 70px;
+                height: 30px;
+                font-size: 12px;
+              }
+              .hide {
+               display: none;
               }
              
               body.vscode-light .input, body.vscode-light .input-area  {
@@ -223,5 +235,10 @@ export default class RapPanel {
     } catch(error) {
       return error;
     }
+  }
+
+  private isHideCopyButton() {
+    const result = !this.request.result && !this.request.error;;
+    return result;
   }
 }
