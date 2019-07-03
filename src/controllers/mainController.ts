@@ -1,3 +1,4 @@
+import * as vscode from 'vscode';
 import Request from '../models/request';
 import RequestService from '../services/request';
 import HistoryService from '../services/history';
@@ -39,6 +40,7 @@ export default class BaseRunner {
         }
         case "copy": {
           ClipboardService.copy(message.text);
+          vscode.window.showInformationMessage("Copied");
         }
       }
     });
