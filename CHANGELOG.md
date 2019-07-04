@@ -1,3 +1,6 @@
+## 1.2.1 (2019/07/04)
+* Add maxStored config
+* Update LICENSE
 ## 1.1.1 (2019/07/03)
 * Fixed history issues
 ## 1.1.0 (2019/07/03)
