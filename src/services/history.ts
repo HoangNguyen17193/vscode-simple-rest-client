@@ -16,8 +16,12 @@ export default class History {
     return StorageService.getData(historyPathFile);
   }
   static write(request: Request) {
-    const history = this.getAll() || [];
+    const maxStored = vscode.workspace.getConfiguration('history').get('maxStored', 50);
+    let history = this.getAll() || [];
     history.unshift(request.serialize());
+    if(history.length > maxStored) {
+      history = history.slice(0, maxStored);
+    }
     return StorageService.write(historyPathFile, history);
   }
 }

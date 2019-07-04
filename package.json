@@ -59,7 +59,18 @@
         "command": "RestClient.newRequest",
         "title": "Simple Rest Client: New Request"
       }
-    ]
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Simple REST Client",
+      "properties": {
+        "history.maxStored": {
+          "type": "integer",
+          "default": 50,
+          "description": "Max num of requests can be stored"
+        }
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
