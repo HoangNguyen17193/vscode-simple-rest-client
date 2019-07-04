@@ -6,8 +6,8 @@ import Request from './models/request';
 import Controller from './controllers/mainController';
 
 export function activate(context: vscode.ExtensionContext) {
-  const controller = new Controller();
   const treeDataProvider = new TreeDataProvider();
+  const controller = new Controller(treeDataProvider);
   context.subscriptions.push(vscode.window.registerTreeDataProvider("Menu", treeDataProvider));
 
   context.subscriptions.push(vscode.commands.registerCommand("RestClient.newRequest", () => {

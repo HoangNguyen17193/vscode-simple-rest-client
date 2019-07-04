@@ -4,8 +4,9 @@ import StorageService from '../services/storage';
 
 const path = require('path');
 const fs = require('fs');
+const homedir = require("homedir");
 
-const historyPathFile = path.join(vscode.extensions.getExtension('Tino.simple-rest-client').extensionPath, 'history.json');
+const historyPathFile = path.join(homedir(), "SRC-history.json");
 
 export default class History {
   static getAll() {
