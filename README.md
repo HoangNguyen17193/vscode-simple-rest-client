@@ -15,6 +15,10 @@ Command | Description
 --- | ---
 ```Simple Rest Client: New Request``` | Create new request panel.
 
+## Settings
+
+* `History: maxStored`: Max num of requests can be stored.(default is 50)
+
 ## Usage
 ![](https://raw.githubusercontent.com/HoangNguyen17193/vscode-simple-rest-client/master/design/screen-shots/v1/screen-shots.gif)
 
