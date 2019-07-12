@@ -3,7 +3,7 @@
   "displayName": "Simple REST Client",
   "publisher": "Tino",
   "description": "Easy to examine your API’s responses directly within Visual Studio Code. Send requests to verify your API.",
-  "version": "1.2.5",
+  "version": "1.2.7",
   "engines": {
     "vscode": "^1.34.0"
   },
