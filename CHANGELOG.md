@@ -1,4 +1,6 @@
 ## 1.2.7 (2019/07/12)
+* Update styles
+## 1.2.7 (2019/07/12)
 * Update screenshots
 ## 1.2.5 (2019/07/09)
 * Update logo
