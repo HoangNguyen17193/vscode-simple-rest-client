@@ -176,10 +176,17 @@ export default class RapPanel {
                 margin-top: 20px;
               }
               .btn-request {
-                background: linear-gradient(45deg, #3949ab, #4fc3f7);
                 color: #FFFFFF;
                 box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
                 width: 150px;
+                background-size: 300% 100%;
+                transition: all .4s ease-in-out;
+                background-image: linear-gradient(to right, #25aae1, #4481eb, #04befe, #3f86ed);
+                box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+              }
+              .btn-request:hover {
+                background-position: 100% 0;
+                transition: all .4s ease-in-out;
               }
               pre {
                 background-color: rgba(194,199,203,0.2);
