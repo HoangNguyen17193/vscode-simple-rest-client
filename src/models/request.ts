@@ -9,13 +9,15 @@ export default class Request {
   private _form: string;
   private _result: any;
   private _error: any;
-  constructor(name:string, url: string, type: string, headers: string, body: string, form: string) {
+  private _options: string;
+  constructor(name:string, url: string, type: string, headers: string, body: string, form: string, options = '') {
     this._name = name;
     this._url = url;
     this._type = type || 'GET';
     this._headers = headers;
     this._body = body;
     this._form = form;
+    this._options = options;
   }
 
   get name() {
@@ -46,6 +48,10 @@ export default class Request {
     return this._result;
   }
 
+  get options() {
+    return this._options;
+  }
+
   set result(result: any) {
     this._result = result;
   }
@@ -65,7 +71,8 @@ export default class Request {
       type: this._type,
       headers: this._headers,
       body: this._body,
-      form: this._form
+      form: this._form,
+      options: this._options
     };
   }
 } 

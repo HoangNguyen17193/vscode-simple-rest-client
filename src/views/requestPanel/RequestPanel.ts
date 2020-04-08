@@ -57,11 +57,15 @@ export default class RapPanel {
                     <div class="input-label">Name</div>
                     <input value="${this._request.name}" class="input request-name" id="request-name" type="text"/>
                   </div>
-                </div>
-                <div class="row">
                   <div class="col">
                     <div class="input-label">URL*</div>
                     <input required value="${this._request.url}" class="input request-url" id="request-url" type="text"/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <div class="input-label">Headers</div>
+                    <textarea class="input-area request-headers" id="request-headers" type="text" rows="4">${this._request.headers}</textarea>
                   </div>
                   <div class="col">
                     <div class="input-label">Method*</div>
@@ -70,12 +74,12 @@ export default class RapPanel {
                 </div>
                 <div class="row">
                   <div class="col">
-                    <div class="input-label">Headers</div>
-                    <textarea class="input-area request-headers" id="request-headers" type="text" rows="5">${this._request.headers}</textarea>
+                    <div class="input-label">Options</div>
+                    <textarea placeholder="Request Promise Library Options" class="input-area request-headers" id="request-options" type="text" rows="4">${this._request.options}</textarea>
                   </div>
                   <div class="col">
                     <div class="input-label">Body</div>
-                    <textarea class="input-area request-body" id="request-body" type="text" rows="5">${this._request.body}</textarea>
+                    <textarea class="input-area request-body" id="request-body" type="text" rows="4">${this._request.body}</textarea>
                   </div>
                 </div>
                 <div class="footer">
@@ -99,7 +103,8 @@ export default class RapPanel {
                     const url = document.getElementById('request-url').value;
                     const body = document.getElementById('request-body').value;
                     const headers = document.getElementById('request-headers').value;
-                    document.vscode.postMessage({command: 'request', name, url, type: method, headers, body});
+                    const options = document.getElementById('request-options').value;
+                    document.vscode.postMessage({command: 'request', name, url, type: method, headers, body, options});
                   }
                   function copyResult() {
                      const result = document.getElementById('result').innerText;
@@ -245,7 +250,7 @@ export default class RapPanel {
   }
 
   private isHideCopyButton() {
-    const result = !this.request.result && !this.request.error;;
+    const result = !this.request.result && !this.request.error;
     return result;
   }
 }
