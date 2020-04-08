@@ -8,10 +8,14 @@ export default class Request {
   static request(requestModel:RequestModel) {
     try {
 
-     const options: any = {
+     let options: any = {
        method: requestModel.type,
        uri: requestModel.url
      };
+     if(!isBlank(requestModel.options)) {
+       const inputOptions = JSON.parse(requestModel.options);
+       options = { ...options, ...inputOptions };
+     }
      if (!isBlank(requestModel.body)) {
        options.body = JSON.stringify(JSON.parse(requestModel.body));
      }
