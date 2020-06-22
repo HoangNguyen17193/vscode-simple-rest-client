@@ -26,7 +26,8 @@ export default class RapPanel {
   public create() {
     const panel = vscode.window.createWebviewPanel("RequestPanel", "New Request", vscode.ViewColumn.One,
       {
-        enableScripts: true
+        enableScripts: true,
+        retainContextWhenHidden: true
       }
     );
     this.panel = panel;
