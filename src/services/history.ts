@@ -9,7 +9,7 @@ const homedir = require("homedir");
 const historyPathFile = path.join(homedir(), "SRC-history.json");
 
 export default class History {
-  static getAll() {
+  static getAll(): Array<any> {
     if(!fs.existsSync(historyPathFile)) {
       return [];
     }
@@ -17,11 +17,27 @@ export default class History {
   }
   static write(request: Request) {
     const maxStored = vscode.workspace.getConfiguration('history').get('maxStored', 50);
-    let history = this.getAll() || [];
+    let history = this.getAll();
+
+    let serializedRequest = request.serialize();
+
+    if (history.some(h => 
+      h.name === serializedRequest.name
+      && h.url === serializedRequest.url
+      && h.type === serializedRequest.type
+      && h.headers === serializedRequest.headers
+      && h.body === serializedRequest.body
+      && h.options === serializedRequest.options))
+    {
+      return;
+    }
+
     history.unshift(request.serialize());
+
     if(history.length > maxStored) {
       history = history.slice(0, maxStored);
     }
+
     return StorageService.write(historyPathFile, history);
   }
 }

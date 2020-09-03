@@ -26,7 +26,8 @@ export default class RapPanel {
   public create() {
     const panel = vscode.window.createWebviewPanel("RequestPanel", "New Request", vscode.ViewColumn.One,
       {
-        enableScripts: true
+        enableScripts: true,
+        retainContextWhenHidden: true
       }
     );
     this.panel = panel;
@@ -40,9 +41,19 @@ export default class RapPanel {
     }
   }
 
+  private escapeHtml(unsafe) {
+    return unsafe
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
+
   private getWebviewContent() {
-    const result = this.beautifyResult(this._request.result);
-    const error = this.beautifyError(this._request.error);
+    const result = this.beautifyJSON(this._request.result);
+    const error = this.beautifyJSON(this._request.error);
+    const options = this.beautifyJSON(this._request.options);
     return `<!DOCTYPE html>
           <html lang="en">
             <head>
@@ -55,39 +66,40 @@ export default class RapPanel {
                 <div class="row">
                   <div class="col">
                     <div class="input-label">Name</div>
-                    <input value="${this._request.name}" class="input request-name" id="request-name" type="text"/>
+                    <input placeholder="Request Name in Extension's Histrory" value="${this._request.name}" class="input request-name" id="request-name" type="text"/>
                   </div>
                   <div class="col">
                     <div class="input-label">URL*</div>
-                    <input required value="${this._request.url}" class="input request-url" id="request-url" type="text"/>
+                    <input placeholder="URL string" required value="${this._request.url}" class="input request-url" id="request-url" type="text"/>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col">
                     <div class="input-label">Headers</div>
-                    <textarea class="input-area request-headers" id="request-headers" type="text" rows="4">${this._request.headers}</textarea>
+                    <textarea placeholder="Headers as JSON" class="input-area request-headers" id="request-headers" type="text" rows="4">${this._request.headers}</textarea>
                   </div>
                   <div class="col">
                     <div class="input-label">Method*</div>
-                    <input required value="${this._request.type}" class="input request-method" id="request-method" type="text" /> 
+                    <input placeholder="HTTP method" required value="${this._request.type}" class="input request-method" id="request-method" type="text" /> 
                   </div>
                 </div>
                 <div class="row">
                   <div class="col">
                     <div class="input-label">Options</div>
-                    <textarea placeholder="Request Promise Library Options" class="input-area request-headers" id="request-options" type="text" rows="4">${this._request.options}</textarea>
+                    <textarea placeholder="Request Promise Library Options as JSON" class="input-area request-headers" id="request-options" type="text" rows="4">${options}</textarea>
                   </div>
                   <div class="col">
                     <div class="input-label">Body</div>
-                    <textarea class="input-area request-body" id="request-body" type="text" rows="4">${this._request.body}</textarea>
+                    <textarea placeholder="Request Body" class="input-area request-body" id="request-body" type="text" rows="4">${this._request.body}</textarea>
                   </div>
                 </div>
                 <div class="footer">
                   <button type="submit" class="btn btn-request">Send</button>
+                  <button onclick="copyResult()" class="btn btn-copy ${this.isHideCopyButton() ? 'hide' : ''}">Copy</button>
+                  ${this._request.time ? '&nbsp;&nbsp;Time: ' + this._request.time +  'ms' : '' } 
                 </div>
-                <button onclick="copyResult()" class="btn btn-copy ${this.isHideCopyButton() ? 'hide' : ''}">Copy</button>
                 <div class="row">
-                  <pre><code id="result" class="${result ? 'result' : 'error'}">${result ? result : error}</code></pre>
+                  <pre><code id="result" class="${result ? 'result' : 'error'}">${result ? this.escapeHtml(result) : this.escapeHtml(error)}</code></pre>
                 </div>
               </div>
                 <script>
@@ -225,27 +237,15 @@ export default class RapPanel {
           </html>`;
   }
 
-  private beautifyResult(result) {
-    if(isBlank(result)) {
+  private beautifyJSON(jsonString) {
+    if (isBlank(jsonString)) {
       return '';
     }
     try {
-      const jsonResult = JSON.parse(result.toString());
+      const jsonResult = JSON.parse(jsonString.toString());
       return JSON.stringify(jsonResult, null, 4);
     } catch(error) {
-      return result;
-    }
-  }
-
-  private beautifyError(error) {
-    if (isBlank(error)) {
-      return "";
-    }
-    try {
-      const jsonError = JSON.parse(JSON.stringify(error));
-      return JSON.stringify(jsonError, null, 4);
-    } catch(error) {
-      return error;
+      return jsonString;
     }
   }
 

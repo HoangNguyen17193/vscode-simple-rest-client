@@ -11,7 +11,7 @@ export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(vscode.window.registerTreeDataProvider("Menu", treeDataProvider));
 
   context.subscriptions.push(vscode.commands.registerCommand("RestClient.newRequest", () => {
-    const request = new Request('', '', '', '', '', '');
+    const request = new Request('', '', 'GET', '{}', '', '{"proxy":""}');
     controller.createRequestPanel(request);
   }));
   context.subscriptions.push(vscode.commands.registerCommand("RestClient.historyRequest", (request: Request) => {
