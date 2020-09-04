@@ -1,3 +1,5 @@
+## 1.3.1 (2020/06/22)
+* Improve performance
 ## 1.3.0 (2020/04/08)
 * Add request library options
 ## 1.2.8 (2019/08/16)

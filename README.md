@@ -7,6 +7,7 @@ Easy to examine your API’s responses directly within Visual Studio Code. Send 
 - Send HTTP request (based on [request.js](https://github.com/request/request)) and view response in a request panel with friendly UI
 - Support multiple request panels
 - History
+- Request options (refer to [request-promise](https://www.npmjs.com/package/request-promise))
 
 ## Useful commands
 Open the Command Palette (Command+Shift+P on macOS and Ctrl+Shift+P on Windows/Linux) and type in one of the following commands:
