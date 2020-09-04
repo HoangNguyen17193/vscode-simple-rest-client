@@ -42,6 +42,9 @@ export default class RapPanel {
   }
 
   private escapeHtml(unsafe) {
+    if(!unsafe) {
+      return '';
+    }
     return unsafe
       .replace(/&/g, "&amp;")
       .replace(/</g, "&lt;")
