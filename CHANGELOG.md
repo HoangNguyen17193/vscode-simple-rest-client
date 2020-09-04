@@ -1,3 +1,5 @@
+## 1.4.1 (2020/09/04)
+* Improve performance, Add duration
 ## 1.3.1 (2020/06/22)
 * Improve performance
 ## 1.3.0 (2020/04/08)
