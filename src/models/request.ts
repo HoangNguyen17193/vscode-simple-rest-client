@@ -10,14 +10,14 @@ export default class Request {
   private _result: any;
   private _error: any;
   private _options: string;
-  constructor(name:string, url: string, type: string, headers: string, body: string, form: string, options = '') {
+  private _time: any;
+  constructor(name:string, url: string, type: string, headers: string, body: string, options: string) {
     this._name = name;
     this._url = url;
     this._type = type || 'GET';
     this._headers = headers;
     this._body = body;
-    this._form = form;
-    this._options = options;
+     this._options = options;
   }
 
   get name() {
@@ -40,10 +40,6 @@ export default class Request {
     return this._body;
   }
 
-  get form() {
-    return this._form;
-  }
-
   get result() {
     return this._result;
   }
@@ -63,6 +59,14 @@ export default class Request {
   set error(error) {
     this._error = error;
   }
+
+  get time() {
+    return this._time;
+  }
+
+  set time(time) {
+    this._time = time;
+  }
   
   public serialize() {
     return {
@@ -71,7 +75,6 @@ export default class Request {
       type: this._type,
       headers: this._headers,
       body: this._body,
-      form: this._form,
       options: this._options
     };
   }
