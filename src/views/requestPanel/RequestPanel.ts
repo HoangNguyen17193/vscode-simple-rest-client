@@ -102,7 +102,7 @@ export default class RapPanel {
                   ${this._request.time ? '&nbsp;&nbsp;Time: ' + this._request.time +  'ms' : '' } 
                 </div>
                 <div class="row">
-                  <pre><code id="result" class="${result ? 'result' : 'error'}">${result ? this.escapeHtml(result) : this.escapeHtml(error)}</code></pre>
+                  <pre><code id="result" class="${result ? 'result' : 'error'}">${result ? this.escapeHtml(result) : error}</code></pre>
                 </div>
               </div>
                 <script>
