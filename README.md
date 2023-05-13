@@ -1,5 +1,7 @@
 # Simple REST Client
-[![Marketplace Version](https://vsmarketplacebadges.dev/version-short/Tino.simple-rest-client.svg)](https://marketplace.visualstudio.com/items?itemName=Tino.simple-rest-client) [![Installs](https://vsmarketplacebadges.dev/installs-short/Tino.simple-rest-client.svg)](https://marketplace.visualstudio.com/items?itemName=Tino.simple-rest-client) [![Download]([https://vsmarketplacebadge.apphb.com/downloads-short/Tino.simple-rest-client.svg?color=blue](https://vsmarketplacebadges.dev/downloads-short/Tino.simple-rest-client.svg))](https://marketplace.visualstudio.com/items?itemName=Tino.simple-rest-client) [![Rating](https://vsmarketplacebadges.dev/rating-star/Tino.simple-rest-client.svg?color=ff9345)](https://marketplace.visualstudio.com/items?itemName=Tino.simple-rest-client)
+[![Marketplace Version](https://vsmarketplacebadges.dev/version-short/Tino.simple-rest-client.svg)](https://marketplace.visualstudio.com/items?itemName=Tino.simple-rest-client) [![Installs](https://vsmarketplacebadges.dev/installs-short/Tino.simple-rest-client.svg)](https://marketplace.visualstudio.com/items?itemName=Tino.simple-rest-client) [![Download](https://vsmarketplacebadge.apphb.com/downloads-short/Tino.simple-rest-client.svg?color=blue](https://vsmarketplacebadges.dev/downloads-short/Tino.simple-rest-client.svg))](https://marketplace.visualstudio.com/items?itemName=Tino.simple-rest-client) [![Rating](https://vsmarketplacebadges.dev/rating-star/Tino.simple-rest-client.svg?color=ff9345)](https://marketplace.visualstudio.com/items?itemName=Tino.simple-rest-client)
+
+
 Easy to examine your API’s responses directly within Visual Studio Code. Send requests to verify your API.
 
 ## Main Features
